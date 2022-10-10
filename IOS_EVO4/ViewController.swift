@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var expenseLabel: UILabel!
     @IBOutlet weak var addExpenseButton: UIButton!
-    var expenses = [Expense]() 
+    var expenses = [Expense]() {
+        didSet {
+            expenseTableView.reloadData()
+        }
+    }
     private let context = AppDelegate.shared.persistentContainer.viewContext
 
     
